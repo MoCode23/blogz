@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>User Login</h1>
+    <p>Do you have an account? If not, <a href="/signup">make one bro!</a>!</p>
+    <!--  form action needs to match the url you want it to go to after submit -->
+    <form action="/login" method='POST'>
+        <p class="flash">
+        
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            <ul>
+            {% for category,message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+            </ul>
+        {% endwith %}
+
+        </p>
+
+        <label>
+            <span class="form_label">Username</span>
+            <input name="username" type="text" value='{{username}}' />
+        </label>
+        <label>
+            <span class="form_label">Password</span>
+            <input name="password" type="password" value='{{password}}' />
+        </label>
+        <input class="submit" type="submit" value="Submit" />
+    </form>
+    
+{% endblock %} 

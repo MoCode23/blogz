@@ -1,13 +1,13 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
     
-<h1>Blog Posts</h1>
+<h1>Individual Blog Posts</h1>
 
     <div>
-            <h2>{{ind_post.title}}</h2>
-            <p>{{ind_post.post}}</p>
+        <h2>{{ind_post.title}}</h2>
+        <p class="entry">{{ind_post.post}}</p>
+        <p class="byline">Written by <a href="./blog?owner_id={{ind_post.owner_id}}">{{ind_post.owner.username}}</a></p>
     </div>
     
 

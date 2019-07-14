@@ -2,16 +2,17 @@
 
 {% block content %}
     
-<h1>All Blog Entries</h1>
+<h1>Blog Posts</h1>
 
     <div>
-            {% for blog in posts %}
+        {% for blog in posts %}
             <h2><a href="./blog?id={{blog.id}}">{{blog.title}}</a></h2>
             <p class="entry">{{blog.post}}</p>
+            <!-- owner was declared in the backref -->
             <p class="byline">Written by <a href="./blog?owner_id={{blog.owner_id}}">{{blog.owner.username}}</a></p>
             <hr>
-            {% endfor %}
+        {% endfor %}
     </div>
     
 
-{% endblock %} 
+{% endblock %}

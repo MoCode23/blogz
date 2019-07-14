@@ -8,12 +8,20 @@
         <body>
 
             <header>
-                <nav><a href="/blog">Main Blog Page</a> <a href="/newpost">Add a Blog Entry</a>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/blog">Main Blog Page</a></li>
+                        <li><a href="/newpost">Add a Blog Entry</a></li>
+                        <li><a href="/signup">User Signup</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
                 </nav>
             </header>
-
-    {% block content %}
-    {% endblock %}
-
+    
+        {% block content %}
+        {% endblock %}
+    
         </body>
 </html>

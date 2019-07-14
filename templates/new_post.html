@@ -3,17 +3,28 @@
 {% block content %}    
     
     <h1>Add a Blog Entry</h1>
+    <!--  form action needs to match the url you want it to go to after submit -->
     <form action="/newpost" method='POST'>
+
+        <p class="flash">
+        
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            <ul>
+            {% for category,message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+            </ul>
+        {% endwith %}
+
+        </p>
+
         <label>
             <span class="form_label">Title for your new blog:</span>
             <input name="blog_title" type="text" value="{{post_title}}">
         </label>
-        <p class="error">{{title_error}} &nbsp;</p>
-        <label>
             <span class="form_label">Your new blog:</span>
-            <textarea name="blog_post" type="textarea" rows="10" cols="100">{{post_entry}}</textarea>
+            <textarea name="blog_post" type="textarea" rows="10">{{post_entry}}</textarea>
         </label>
-        <p class="error">{{blog_entry_error}} &nbsp;</p>
         <input class="submit" type="submit" value="Add Entry" />
     </form>
 
